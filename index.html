@@ -254,13 +254,13 @@
             padding: 25px;
         }
 
-        .gallery-text h4 {
+        .gallery-overlay h4 {
             color: #FFFFFF;
             font-size: 18px;
             font-weight: 700;
         }
 
-        /* INTERACTIVE POPUP MODAL ARCHITECTURE */
+        /* INTERACTIVE POPUP MODAL ARCHITECTURE WITH SLIDER ENGINE */
         .modal {
             display: none; 
             position: fixed;
@@ -270,23 +270,24 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
-            overflow-y: auto;
         }
 
         .modal-content {
             background-color: #FFFFFF;
             border-radius: 24px;
-            max-width: 900px;
+            max-width: 750px;
             width: 100%;
             padding: 40px;
             position: relative;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            text-align: center;
             animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .modal-content.small-form-modal {
             max-width: 500px;
             padding: 35px;
+            text-align: left;
         }
 
         @keyframes modalFadeIn {
@@ -303,6 +304,7 @@
             color: #4A5568;
             cursor: pointer;
             transition: color 0.2s;
+            z-index: 10;
         }
 
         .close-modal:hover {
@@ -322,18 +324,95 @@
             font-size: 16px;
         }
 
-        .modal-gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 15px;
+        /* PREMIUM DYNAMIC IMAGE SLIDER WRAPPER */
+        .slider-wrapper {
+            position: relative;
+            margin: 20px 0;
+            height: 380px;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #F7FAFC;
+            border: 1px solid #E9ECEF;
         }
 
-        .modal-gallery-grid img {
+        .slider-wrapper img {
             width: 100%;
-            height: 180px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 12px;
-            border: 1px solid #E9ECEF;
+            display: none;
+            cursor: zoom-in;
+            animation: slideFade 0.3s ease-in-out;
+        }
+
+        .slider-wrapper img.active {
+            display: block;
+        }
+
+        @keyframes slideFade {
+            from { opacity: 0.7; }
+            to { opacity: 1; }
+        }
+
+        /* NAVIGATION BUTTON CONTROLS */
+        .slide-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #0D1B2A;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.2s ease;
+            z-index: 5;
+        }
+
+        .slide-btn:hover {
+            background-color: #FF3366;
+            color: #FFFFFF;
+        }
+
+        .prev-btn { left: 15px; }
+        .next-btn { right: 15px; }
+
+        /* FULL SCREEN LIGHTBOX WINDOW (ZOOM MODE CLOSES ON DIALOG TAP) */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.98);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-img {
+            max-width: 95vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 0 35px rgba(0,0,0,0.6);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 50px;
+            color: #FFFFFF;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s, color 0.2s;
+        }
+
+        .close-lightbox:hover {
+            opacity: 1;
+            color: #FF3366;
         }
 
         /* PREMIUM FORM STYLING */
@@ -450,6 +529,7 @@
             nav a { margin: 0 10px; }
             .hero h1 { font-size: 36px; }
             .modal-content { padding: 25px 15px; }
+            .slider-wrapper { height: 260px; }
         }
     </style>
 </head>
@@ -529,7 +609,7 @@
             
             <div class="gallery-grid">
                 <div class="gallery-item" onclick="openModal('putty-modal')">
-                    <img src="https://images.unsplash.com/photo-1542013936693-8848e57423e3?auto=format&fit=crop&w=500&q=80" alt="Wall Putty Finishing">
+                    <img src="putty1.jpg" onerror="this.src='https://images.unsplash.com/photo-1542013936693-8848e57423e3?auto=format&fit=crop&w=500&q=80'" alt="Wall Putty Finishing">
                     <div class="gallery-overlay">
                         <div class="gallery-text"><h4>✨ Wall Putty & Wall Texture Smoothness</h4></div>
                     </div>
@@ -556,11 +636,12 @@
         </div>
     </section>
 
+    <!-- CUSTOMIZED BOOKING FORM WITH YOUR DETAILED ADDRESS EXTRA FIELD -->
     <div id="visit-form-modal" class="modal">
         <div class="modal-content small-form-modal">
             <span class="close-modal" onclick="closeModal('visit-form-modal')">&times;</span>
             <h2>Book Free Visit</h2>
-            <p class="modal-desc">Fill out your contact details below. will connect with you shortly to schedule an inspection.</p>
+            <p class="modal-desc">Fill out your contact details below. We will connect with you shortly to schedule an inspection.</p>
             
             <form onsubmit="handleFormSubmit(event)">
                 <div class="form-group">
@@ -582,9 +663,9 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="address">Area Location *</label>
+                    <label for="client-address">Area Location *</label>
                     <input type="text" id="client-address" class="form-control" placeholder="Enter your Address" required>
-                    <label for="pincode">Area Pincode *</label>
+                    <label for="pincode" style="margin-top: 15px;">Area Pincode *</label>
                     <input type="text" id="pincode" class="form-control" placeholder="e.g. 400001" required>
                 </div>
                 <button type="submit" class="form-btn">Submit Details</button>
@@ -592,15 +673,18 @@
         </div>
     </div>
 
+    <!-- MODERNIZED SLIDER MODALS SECTION -->
     <div id="painting-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('painting-modal')">&times;</span>
             <h2>🎨 Premium Painting Projects</h2>
-            <p class="modal-desc">Recent professional interior wall coloring and designer styling.</p>
-            <div class="modal-gallery-grid">
-                <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=400&q=80" alt="Paint 1">
-                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=400&q=80" alt="Paint 2">
-                <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=400&q=80" alt="Paint 3">
+            <p class="modal-desc">Recent professional interior wall coloring. Click image to open Full Screen.</p>
+            <div class="slider-wrapper">
+                <button class="slide-btn prev-btn" onclick="moveSlide('painting-modal', -1)">&lt;</button>
+                <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80" class="active" onclick="launchLightbox(this.src)" alt="Paint 1">
+                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80" onclick="launchLightbox(this.src)" alt="Paint 2">
+                <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80" onclick="launchLightbox(this.src)" alt="Paint 3">
+                <button class="slide-btn next-btn" onclick="moveSlide('painting-modal', 1)">&gt;</button>
             </div>
         </div>
     </div>
@@ -609,11 +693,13 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('waterproofing-modal')">&times;</span>
             <h2>💧 Advanced Waterproofing Projects</h2>
-            <p class="modal-desc">Heavy-duty chemical barrier coats and leakage tracking solutions.</p>
-            <div class="modal-gallery-grid">
-                <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=400&q=80" alt="Waterproofing 1">
-                <img src="https://images.unsplash.com/photo-1605744436033-60df3022a33c?auto=format&fit=crop&w=400&q=80" alt="Waterproofing 2">
-                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=400&q=80" alt="Waterproofing 3">
+            <p class="modal-desc">Heavy-duty chemical barrier coats. Click image to open Full Screen.</p>
+            <div class="slider-wrapper">
+                <button class="slide-btn prev-btn" onclick="moveSlide('waterproofing-modal', -1)">&lt;</button>
+                <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=800&q=80" class="active" onclick="launchLightbox(this.src)" alt="Waterproofing 1">
+                <img src="https://images.unsplash.com/photo-1605744436033-60df3022a33c?auto=format&fit=crop&w=800&q=80" onclick="launchLightbox(this.src)" alt="Waterproofing 2">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" onclick="launchLightbox(this.src)" alt="Waterproofing 3">
+                <button class="slide-btn next-btn" onclick="moveSlide('waterproofing-modal', 1)">&gt;</button>
             </div>
         </div>
     </div>
@@ -622,30 +708,34 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('maintenance-modal')">&times;</span>
             <h2>🏡 Home Maintenance Operations</h2>
-            <p class="modal-desc">Wall crack repairs, base putty application, and maintenance upkeep.</p>
-            <div class="modal-gallery-grid">
-                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=400&q=80" alt="Maintenance 1">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=80" alt="Maintenance 2">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=400&q=80" alt="Maintenance 3">
+            <p class="modal-desc">Wall crack repairs and base treatments. Click image to open Full Screen.</p>
+            <div class="slider-wrapper">
+                <button class="slide-btn prev-btn" onclick="moveSlide('maintenance-modal', -1)">&lt;</button>
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" class="active" onclick="launchLightbox(this.src)" alt="Maintenance 1">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" onclick="launchLightbox(this.src)" alt="Maintenance 2">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" onclick="launchLightbox(this.src)" alt="Maintenance 3">
+                <button class="slide-btn next-btn" onclick="moveSlide('maintenance-modal', 1)">&gt;</button>
             </div>
         </div>
     </div>
 
+    <!-- MERGED WALL PUTTY POPUP SLIDER WITH ALL YOUR 8 CHOSEN IMAGES -->
     <div id="putty-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('putty-modal')">&times;</span>
             <h2>✨ Wall Putty & Wall Texture Smoothness</h2>
-            <p class="modal-desc">Multi-layer leveling to fix wall bumps and prepare perfect paint bases.</p>
-            <div class="modal-gallery-grid">
-               <img src="putty1.jpg" alt="Local Site Putty Work 1">
-               <img src="putty2.jpg" alt="Local Site Putty Work 2">
-                <img src="download(6).jpg" alt="Local Site Putty Work 3">
-                <img src="download (5).jpg" alt="Local Site Putty Work 4">
-                <img src="download (4).jpg" alt="Local Site Putty Work 5">
-                <img src="download (3).jpg" alt="Local Site Putty Work 6">
-                <img src="download (2).jpg" alt="Local Site Putty Work 7">
-                <img src="download (1).jpg" alt="Local Site Putty Work 8">
-                
+            <p class="modal-desc">Multi-layer leveling to fix wall bumps. Click image to open Full Screen.</p>
+            <div class="slider-wrapper">
+                <button class="slide-btn prev-btn" onclick="moveSlide('putty-modal', -1)">&lt;</button>
+                <img src="putty1.jpg" class="active" onclick="launchLightbox(this.src)" alt="Local Site Putty Work 1">
+                <img src="putty2.jpg" onclick="launchLightbox(this.src)" alt="Local Site Putty Work 2">
+                <img src="download(6).jpg" onclick="launchLightbox(this.src)" alt="Local Site Putty Work 3">
+                <img src="download (5).jpg" onclick="launchLightbox(this.src)" alt="Local Site Putty Work 4">
+                <img src="download (4).jpg" onclick="launchLightbox(this.src)" alt="Local Site Putty Work 5">
+                <img src="download (3).jpg" onclick="launchLightbox(this.src)" alt="Local Site Putty Work 6">
+                <img src="download (2).jpg" onclick="launchLightbox(this.src)" alt="Local Site Putty Work 7">
+                <img src="download (1).jpg" onclick="launchLightbox(this.src)" alt="Local Site Putty Work 8">
+                <button class="slide-btn next-btn" onclick="moveSlide('putty-modal', 1)">&gt;</button>
             </div>
         </div>
     </div>
@@ -654,10 +744,12 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('finish-modal')">&times;</span>
             <h2>💎 Premium Interior Wall Finish</h2>
-            <p class="modal-desc">Completed high-end luxury interiors with flawless sheen reflection levels.</p>
-            <div class="modal-gallery-grid">
-                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80" alt="Finish 1">
-                <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=400&q=80" alt="Finish 2">
+            <p class="modal-desc">Completed high-end luxury interiors. Click image to open Full Screen.</p>
+            <div class="slider-wrapper">
+                <button class="slide-btn prev-btn" onclick="moveSlide('finish-modal', -1)">&lt;</button>
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" class="active" onclick="launchLightbox(this.src)" alt="Finish 1">
+                <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80" onclick="launchLightbox(this.src)" alt="Finish 2">
+                <button class="slide-btn next-btn" onclick="moveSlide('finish-modal', 1)">&gt;</button>
             </div>
         </div>
     </div>
@@ -666,10 +758,12 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('exterior-modal')">&times;</span>
             <h2>🛡️ Weather Exterior Protection</h2>
-            <p class="modal-desc">Exterior properties shielded effectively from moisture, fungus, and dust scaling.</p>
-            <div class="modal-gallery-grid">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Exterior 1">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400&q=80" alt="Exterior 2">
+            <p class="modal-desc">Exterior properties shielded from moisture. Click image to open Full Screen.</p>
+            <div class="slider-wrapper">
+                <button class="slide-btn prev-btn" onclick="moveSlide('exterior-modal', -1)">&lt;</button>
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" class="active" onclick="launchLightbox(this.src)" alt="Exterior 1">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" onclick="launchLightbox(this.src)" alt="Exterior 2">
+                <button class="slide-btn next-btn" onclick="moveSlide('exterior-modal', 1)">&gt;</button>
             </div>
         </div>
     </div>
@@ -678,12 +772,20 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('terrace-modal')">&times;</span>
             <h2>🏗️ Terrace Structural Waterproofing</h2>
-            <p class="modal-desc">Anti-leak PU coating application on open roofs and critical corner joints.</p>
-            <div class="modal-gallery-grid">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=80" alt="Terrace 1">
-                <img src="https://images.unsplash.com/photo-1605744436033-60df3022a33c?auto=format&fit=crop&w=400&q=80" alt="Terrace 2">
+            <p class="modal-desc">Anti-leak PU coating application on open roofs. Click image to open Full Screen.</p>
+            <div class="slider-wrapper">
+                <button class="slide-btn prev-btn" onclick="moveSlide('terrace-modal', -1)">&lt;</button>
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" class="active" onclick="launchLightbox(this.src)" alt="Terrace 1">
+                <img src="https://images.unsplash.com/photo-1605744436033-60df3022a33c?auto=format&fit=crop&w=800&q=80" onclick="launchLightbox(this.src)" alt="Terrace 2">
+                <button class="slide-btn next-btn" onclick="moveSlide('terrace-modal', 1)">&gt;</button>
             </div>
         </div>
+    </div>
+
+    <!-- REAL-TIME CONTEXT LIGHTBOX STRUCTURAL WRAPPER -->
+    <div id="global-lightbox" class="lightbox">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-target-img" class="lightbox-img" src="" alt="Full Screen Preview">
     </div>
 
     <footer id="contact">
@@ -701,9 +803,17 @@
     </footer>
 
     <script>
+        // Open Popups and safely reset image layout to index 0
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "flex";
             document.body.style.overflow = "hidden"; 
+            
+            const modal = document.getElementById(modalId);
+            const sliderImages = modal.querySelectorAll('.slider-wrapper img');
+            if(sliderImages.length > 0) {
+                sliderImages.forEach(img => img.classList.remove('active'));
+                sliderImages[0].classList.add('active');
+            }
         }
 
         function closeModal(modalId) {
@@ -711,23 +821,60 @@
             document.body.style.overflow = "auto"; 
         }
 
-        // Close popup automatically if user clicks on the dark outer area
+        // Slide Track Core Logic Controls (Works for your 8 putty images cleanly!)
+        function moveSlide(modalId, direction) {
+            const modal = document.getElementById(modalId);
+            const images = modal.querySelectorAll('.slider-wrapper img');
+            let currentIndex = 0;
+
+            images.forEach((img, idx) => {
+                if (img.classList.contains('active')) {
+                    currentIndex = idx;
+                }
+            });
+
+            images[currentIndex].classList.remove('active');
+
+            let nextIndex = currentIndex + direction;
+            if (nextIndex >= images.length) { nextIndex = 0; }
+            if (nextIndex < 0) { nextIndex = images.length - 1; }
+
+            images[nextIndex].classList.add('active');
+        }
+
+        // Full Screen Lightbox Zoom Controls
+        function launchLightbox(imgSrc) {
+            const lightbox = document.getElementById('global-lightbox');
+            const lightboxImg = document.getElementById('lightbox-target-img');
+            lightboxImg.src = imgSrc;
+            lightbox.style.display = "flex";
+        }
+
+        function closeLightbox() {
+            document.getElementById('global-lightbox').style.display = "none";
+        }
+
+        // Close on dark outside spaces click
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = "none";
                 document.body.style.overflow = "auto";
             }
+            if (event.target.classList.contains('lightbox')) {
+                document.getElementById('global-lightbox').style.display = "none";
+            }
         }
 
-        // Handles user form submissions securely
+        // Form Submit Handler
         function handleFormSubmit(event) {
             event.preventDefault();
             const name = document.getElementById('client-name').value;
             const phone = document.getElementById('client-phone').value;
             const service = document.getElementById('service-type').value;
+            const address = document.getElementById('client-address').value;
             const pin = document.getElementById('pincode').value;
             
-            alert(`Thank you ${name}! Your site inspection request for "${service}" in PIN code ${pin} has been submitted successfully. Vivek Nagwanse will call you back on ${phone} within 24 hours.`);
+            alert(`Thank you ${name}! Your site inspection request for "${service}" at ${address} (PIN: ${pin}) has been submitted successfully. Vivek Nagwanse will call you back on ${phone} within 24 hours.`);
             
             closeModal('visit-form-modal');
             event.target.reset();
