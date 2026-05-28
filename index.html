@@ -3,34 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaibhavi Enterprises | Professional Painting & Waterproofing</title>
+    <title>Vaibhavi Enterprises | Premium Painting & Waterproofing Solutions</title>
     <style>
-        /* BASE DESIGN SYSTEM */
+        /* ASIAN PAINTS INSPIRED LUXURY DESIGN SYSTEM */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            color: #2D3748;
-            background-color: #F7FAFC;
+            color: #1A202C;
+            background-color: #FFFFFF;
             line-height: 1.6;
         }
 
-        /* NAVIGATION BAR */
+        /* PREMIUM STICKY NAVBAR */
         header {
             background-color: #FFFFFF;
-            padding: 15px 20px;
+            padding: 20px 40px;
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid #F0F2F5;
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -38,118 +39,162 @@
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
-            color: #0066CC; /* Trust Blue */
+            color: #0D1B2A; 
             text-decoration: none;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
         }
 
         .logo span {
-            color: #FF6600; /* Vibrant Orange */
+            color: #FF3366; 
         }
 
         nav a {
             text-decoration: none;
             color: #4A5568;
-            margin-left: 20px;
+            margin-left: 30px;
             font-weight: 600;
-            transition: color 0.2s;
+            font-size: 15px;
+            transition: color 0.2s ease;
         }
 
         nav a:hover {
-            color: #0066CC;
+            color: #FF3366;
         }
 
-        /* HERO LAYOUT WITH BACKGROUND IMAGE */
+        /* HERO SHOWCASE BANNER */
         .hero {
-            background: linear-gradient(rgba(0, 34, 68, 0.8), rgba(0, 34, 68, 0.8)), url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #FFFFFF;
-            padding: 120px 20px;
             text-align: center;
+            padding: 0 20px;
         }
 
         .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 850px;
         }
 
         .hero h1 {
-            font-size: 45px;
+            font-size: 56px;
             margin-bottom: 20px;
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 35px;
+            font-weight: 400;
             opacity: 0.95;
         }
 
         .btn {
             display: inline-block;
-            background-color: #FF6600;
+            background-color: #FF3366;
             color: #FFFFFF;
-            padding: 14px 35px;
+            padding: 16px 40px;
             text-decoration: none;
             font-weight: 700;
-            border-radius: 6px;
-            transition: transform 0.2s, background-color 0.2s;
-            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+            font-size: 16px;
+            border-radius: 50px; 
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(255, 51, 102, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border: none;
         }
 
         .btn:hover {
-            background-color: #E65500;
-            transform: translateY(-2px);
+            background-color: #E01A4F;
+            transform: translateY(-3px);
         }
 
-        /* SECTION HEADERS */
-        .section-container {
-            padding: 80px 20px;
+        /* TRUST BADGES STRIP */
+        .trust-strip {
+            background-color: #F8F9FA;
+            padding: 30px 20px;
+            border-bottom: 1px solid #E9ECEF;
+        }
+
+        .trust-container {
             max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: #2B2D42;
+            font-size: 16px;
+        }
+
+        /* SERVICE TILES SECTION */
+        .section-container {
+            padding: 90px 20px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 34px;
-            margin-bottom: 10px;
-            color: #1A202C;
+            font-size: 38px;
+            margin-bottom: 12px;
+            color: #0D1B2A;
             font-weight: 800;
         }
 
         .section-subtitle {
             text-align: center;
-            color: #718096;
-            margin-bottom: 50px;
-            font-size: 16px;
+            color: #6C757D;
+            margin-bottom: 60px;
+            font-size: 18px;
         }
 
-        /* SERVICES GRID */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .card {
             background-color: #FFFFFF;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            transition: transform 0.3s;
+            border: 1px solid #E9ECEF;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+            cursor: pointer;
         }
 
         .card-img {
             width: 100%;
-            height: 220px;
+            height: 100%;
             object-fit: cover;
         }
 
@@ -159,11 +204,22 @@
 
         .card-body h3 {
             font-size: 20px;
-            margin-bottom: 12px;
-            color: #1A202C;
+            margin-bottom: 10px;
+            color: #0D1B2A;
+            font-weight: 700;
         }
 
-        /* PHOTO GALLERY SECTION */
+        .card-action {
+            color: #FF3366;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 15px;
+            display: inline-block;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* PHOTO WORK SHOWCASE GALLERY */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -172,10 +228,10 @@
 
         .gallery-item {
             position: relative;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            height: 250px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            height: 280px;
+            cursor: pointer;
         }
 
         .gallery-item img {
@@ -186,191 +242,488 @@
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
-        .gallery-text {
+        .gallery-overlay {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-            padding: 15px;
-            font-size: 14px;
-            font-weight: 600;
+            inset: 0;
+            background: linear-gradient(transparent, rgba(13, 27, 42, 0.85));
+            display: flex;
+            align-items: flex-end;
+            padding: 25px;
         }
 
-        /* CONTACT SECTION & FOOTER */
-        footer {
-            background-color: #1A202C;
+        .gallery-text h4 {
             color: #FFFFFF;
-            padding: 60px 20px 30px 20px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* INTERACTIVE POPUP MODAL ARCHITECTURE */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 2000;
+            inset: 0;
+            background-color: rgba(13, 27, 42, 0.95);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: #FFFFFF;
+            border-radius: 24px;
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-content.small-form-modal {
+            max-width: 500px;
+            padding: 35px;
+        }
+
+        @keyframes modalFadeIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: 300;
+            color: #4A5568;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #FF3366;
+        }
+
+        .modal h2 {
+            font-size: 28px;
+            color: #0D1B2A;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .modal-desc {
+            color: #6C757D;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        .modal-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+        }
+
+        .modal-gallery-grid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #E9ECEF;
+        }
+
+        /* PREMIUM FORM STYLING */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #2D3748;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #CBD5E0;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #2D3748;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #FF3366;
+            box-shadow: 0 0 0 3px rgba(255, 51, 102, 0.1);
+        }
+
+        .form-btn {
+            width: 100%;
+            background-color: #FF3366;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        .form-btn:hover {
+            background-color: #E01A4F;
+        }
+
+        /* PREMIUM CONTACT SEGMENT */
+        footer {
+            background-color: #0D1B2A;
+            color: #FFFFFF;
+            padding: 90px 20px 40px 20px;
             text-align: center;
         }
 
         .contact-box {
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-            background: rgba(255,255,255,0.05);
-            padding: 35px 30px;
-            border-radius: 10px;
-            border-left: 4px solid #FF6600;
+            max-width: 650px;
+            margin: 0 auto 60px auto;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 45px 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .contact-box h2 {
+            font-size: 32px;
+            font-weight: 800;
             margin-bottom: 5px;
-            font-size: 26px;
         }
 
-        .owner-title {
-            color: #A0AEC0;
-            font-size: 16px;
-            margin-bottom: 20px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+        .owner-badge {
+            display: inline-block;
+            background: rgba(255, 51, 102, 0.15);
+            color: #FF3366;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-transform: uppercase;
         }
 
         .contact-link {
             display: inline-block;
-            color: #FF6600;
-            font-size: 24px;
-            font-weight: 700;
+            color: #FFFFFF;
+            font-size: 26px;
+            font-weight: 800;
             text-decoration: none;
-            margin: 5px 0;
-            transition: color 0.2s;
+            margin: 10px 0;
         }
 
-        .contact-link:hover {
-            color: #FFA366;
+        .contact-link.phone-accent {
+            color: #FF3366;
         }
 
         .footer-line {
             border: 0;
-            border-top: 1px solid #2D3748;
-            margin-bottom: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
         }
 
-        footer p.copyright {
+        .copyright {
             font-size: 14px;
-            color: #A0AEC0;
+            color: #8492A6;
         }
 
-        /* RESPONSIVE FIXES */
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; gap: 15px; }
             nav a { margin: 0 10px; }
-            .hero h1 { font-size: 32px; }
-            .hero p { font-size: 16px; }
-            .contact-link { font-size: 20px; }
+            .hero h1 { font-size: 36px; }
+            .modal-content { padding: 25px 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo">Vaibhavi <span>Enterprises</span></a>
             <nav>
                 <a href="#services">Services</a>
-                <a href="#gallery">Our Work</a>
-                <a href="#contact">Contact</a>
+                <a href="#gallery">Work Showcase</a>
+                <a href="#contact">Book Consult</a>
             </nav>
         </div>
     </header>
 
-    <!-- BANNER HERO -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Protect & Beautify Your Home</h1>
-            <p>Expert painting, structural waterproofing, and premium home maintenance solutions across India by Vaibhavi Enterprises.</p>
-            <a href="#contact" class="btn">Get a Free Estimate</a>
+            <h1>Bringing Color & Protection To Your Space</h1>
+            <p>Experience diagnostic home waterproofing and customized premium painting execution systems.</p>
+            <button class="btn" onclick="openModal('visit-form-modal')">Book Free Site Visit</button>
         </div>
     </section>
 
-    <!-- SERVICES CARDS SECTION -->
+    <div class="trust-strip">
+        <div class="trust-container">
+            <div class="trust-item">📋 Free Site Inspection</div>
+            <div class="trust-item">🛡️ Waterproofing Warranty</div>
+            <div class="trust-item">👷🏽‍♂️ Expert Trained Painters</div>
+        </div>
+    </div>
+
     <section id="services" class="section-container">
-        <h2 class="section-title">Our Expert Solutions</h2>
-        <p class="section-subtitle">Professional protection and repair systems built to keep your property looking flawless.</p>
+        <h2 class="section-title">Explore Our Painting & Care Systems</h2>
+        <p class="section-subtitle">Click on the image to view photos, or select 'Get Quote' to schedule an inspection.</p>
         
         <div class="grid">
-            <!-- Card 1: Painting -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=600&q=80" alt="Professional wall painting service" class="card-img">
+                <div class="card-img-wrapper" onclick="openModal('painting-modal')">
+                    <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=500&q=80" alt="Interior painting" class="card-img">
+                </div>
                 <div class="card-body">
-                    <h3>🎨 Premium Painting</h3>
-                    <p>Flawless interior and exterior wall coatings. We use top-tier, long-lasting weatherproofing paints that stand strong against dust and monsoons.</p>
+                    <h3>🎨 Premium Painting Solutions</h3>
+                    <p>Luxury interior wall transformations and exterior high-durability color applications.</p>
+                    <span class="card-action" onclick="openModal('visit-form-modal')">Get Quote &rarr;</span>
                 </div>
             </div>
 
-            <!-- Card 2: Waterproofing -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=600&q=80" alt="Waterproofing construction site work" class="card-img">
+                <div class="card-img-wrapper" onclick="openModal('waterproofing-modal')">
+                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=500&q=80" alt="Waterproofing work" class="card-img">
+                </div>
                 <div class="card-body">
                     <h3>💧 Advanced Waterproofing</h3>
-                    <p>Stop wall dampness and roof leaks permanently. Specialized pressure injection treatments for terraces, bathrooms, and exterior walls.</p>
+                    <p>Scientific pressure injections and structural chemical protection for walls and slabs.</p>
+                    <span class="card-action" onclick="openModal('visit-form-modal')">Get Quote &rarr;</span>
                 </div>
             </div>
 
-            <!-- Card 3: Maintenance -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" alt="Home maintenance structural repair" class="card-img">
+                <div class="card-img-wrapper" onclick="openModal('maintenance-modal')">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=500&q=80" alt="Home maintenance" class="card-img">
+                </div>
                 <div class="card-body">
-                    <h3>🏡 Home Maintenance</h3>
-                    <p>Complete structural repairs, crack filling, wall putty application, and routine care checks to preserve your building's overall market value.</p>
+                    <h3>🏡 Home Maintenance & Repair</h3>
+                    <p>Complete concrete structural crack treatments, putty fixes, and structural care upkeep.</p>
+                    <span class="card-action" onclick="openModal('visit-form-modal')">Get Quote &rarr;</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- IMAGE GALLERY SECTION -->
-    <section id="gallery" style="background-color: #EDF2F7;">
+    <section id="gallery" style="background-color: #FAFAFA; border-top: 1px solid #E9ECEF;">
         <div class="section-container">
             <h2 class="section-title">Our Work Showcase</h2>
-            <p class="section-subtitle">A glimpse of recent projects executed by the Vaibhavi Enterprises team.</p>
+            <p class="section-subtitle">Click on any category below to view specific site execution collections.</p>
             
             <div class="gallery-grid">
-                <!-- Image 1 -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1542013936693-8848e57423e3?auto=format&fit=crop&w=500&q=80" alt="Wall plastering and putty finishing">
-                    <div class="gallery-text">Wall Putty & Surface Smoothness</div>
+                <div class="gallery-item" onclick="openModal('putty-modal')">
+                    <img src="https://images.unsplash.com/photo-1542013936693-8848e57423e3?auto=format&fit=crop&w=500&q=80" alt="Wall Putty Finishing">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text"><h4>✨ Wall Putty & Smoothness</h4></div>
+                    </div>
                 </div>
-                <!-- Image 2 -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=80" alt="Beautifully painted modern living room room">
-                    <div class="gallery-text">Premium Interior Wall Finish</div>
+                <div class="gallery-item" onclick="openModal('finish-modal')">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=80" alt="Premium Living Room Finish">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text"><h4>💎 Premium Wall Finish</h4></div>
+                    </div>
                 </div>
-                <!-- Image 3 -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80" alt="Exterior modern house painting color styling">
-                    <div class="gallery-text">Weatherproof Exterior Protection</div>
+                <div class="gallery-item" onclick="openModal('exterior-modal')">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80" alt="Exterior Paint Shield">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text"><h4>🛡️ Weather Exterior Protection</h4></div>
+                    </div>
                 </div>
-                <!-- Image 4 -->
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=500&q=80" alt="Industrial building repair construction worker">
-                    <div class="gallery-text">Terrace Structural Waterproofing</div>
+                <div class="gallery-item" onclick="openModal('terrace-modal')">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=500&q=80" alt="Terrace Waterproofing Layout">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text"><h4>🏗️ Terrace Structural Waterproofing</h4></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT FOOTER -->
+    <div id="visit-form-modal" class="modal">
+        <div class="modal-content small-form-modal">
+            <span class="close-modal" onclick="closeModal('visit-form-modal')">&times;</span>
+            <h2>Book Free Visit</h2>
+            <p class="modal-desc">Fill out your contact details below. Vivek Nagwanse will connect with you shortly to schedule an inspection.</p>
+            
+            <form onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="client-name">Your Full Name *</label>
+                    <input type="text" id="client-name" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-phone">Phone Number *</label>
+                    <input type="tel" id="client-phone" class="form-control" placeholder="Enter 10-digit mobile number" required pattern="[0-9]{10,11}">
+                </div>
+                <div class="form-group">
+                    <label for="service-type">Required Service *</label>
+                    <select id="service-type" class="form-control" required>
+                        <option value="">-- Select Service --</option>
+                        <option value="Interior Painting">Interior Premium Painting</option>
+                        <option value="Exterior Painting">Exterior Weather Guard</option>
+                        <option value="Waterproofing">Structural Waterproofing</option>
+                        <option value="Home Maintenance">Wall Putty & Repair Upkeep</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pincode">Area Pincode *</label>
+                    <input type="text" id="pincode" class="form-control" placeholder="e.g. 400001" required>
+                </div>
+                <button type="submit" class="form-btn">Submit Details</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="painting-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('painting-modal')">&times;</span>
+            <h2>🎨 Premium Painting Projects</h2>
+            <p class="modal-desc">Recent professional interior wall coloring and designer styling.</p>
+            <div class="modal-gallery-grid">
+                <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=400&q=80" alt="Paint 1">
+                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=400&q=80" alt="Paint 2">
+                <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=400&q=80" alt="Paint 3">
+            </div>
+        </div>
+    </div>
+
+    <div id="waterproofing-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('waterproofing-modal')">&times;</span>
+            <h2>💧 Advanced Waterproofing Projects</h2>
+            <p class="modal-desc">Heavy-duty chemical barrier coats and leakage tracking solutions.</p>
+            <div class="modal-gallery-grid">
+                <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=400&q=80" alt="Waterproofing 1">
+                <img src="https://images.unsplash.com/photo-1605744436033-60df3022a33c?auto=format&fit=crop&w=400&q=80" alt="Waterproofing 2">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=400&q=80" alt="Waterproofing 3">
+            </div>
+        </div>
+    </div>
+
+    <div id="maintenance-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('maintenance-modal')">&times;</span>
+            <h2>🏡 Home Maintenance Operations</h2>
+            <p class="modal-desc">Wall crack repairs, base putty application, and maintenance upkeep.</p>
+            <div class="modal-gallery-grid">
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=400&q=80" alt="Maintenance 1">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=80" alt="Maintenance 2">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=400&q=80" alt="Maintenance 3">
+            </div>
+        </div>
+    </div>
+
+    <div id="putty-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('putty-modal')">&times;</span>
+            <h2>✨ Wall Putty & Surface Smoothness</h2>
+            <p class="modal-desc">Multi-layer leveling to fix wall bumps and prepare perfect paint bases.</p>
+            <div class="modal-gallery-grid">
+                <img src="https://images.unsplash.com/photo-1542013936693-8848e57423e3?auto=format&fit=crop&w=400&q=80" alt="Putty 1">
+                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=400&q=80" alt="Putty 2">
+            </div>
+        </div>
+    </div>
+
+    <div id="finish-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('finish-modal')">&times;</span>
+            <h2>💎 Premium Interior Wall Finish</h2>
+            <p class="modal-desc">Completed high-end luxury interiors with flawless sheen reflection levels.</p>
+            <div class="modal-gallery-grid">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80" alt="Finish 1">
+                <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=400&q=80" alt="Finish 2">
+            </div>
+        </div>
+    </div>
+
+    <div id="exterior-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('exterior-modal')">&times;</span>
+            <h2>🛡️ Weather Exterior Protection</h2>
+            <p class="modal-desc">Exterior properties shielded effectively from moisture, fungus, and dust scaling.</p>
+            <div class="modal-gallery-grid">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Exterior 1">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400&q=80" alt="Exterior 2">
+            </div>
+        </div>
+    </div>
+
+    <div id="terrace-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('terrace-modal')">&times;</span>
+            <h2>🏗️ Terrace Structural Waterproofing</h2>
+            <p class="modal-desc">Anti-leak PU coating application on open roofs and critical corner joints.</p>
+            <div class="modal-gallery-grid">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=80" alt="Terrace 1">
+                <img src="https://images.unsplash.com/photo-1605744436033-60df3022a33c?auto=format&fit=crop&w=400&q=80" alt="Terrace 2">
+            </div>
+        </div>
+    </div>
+
     <footer id="contact">
         <div class="contact-box">
             <h2>Vivek Nagwanse</h2>
-            <div class="owner-title">OWNER & FOUNDER</div>
-            <p style="margin-bottom: 15px; color: #E2E8F0;">Call or email us today to book a site inspection and get a precise quote.</p>
+            <div class="owner-badge">Owner & Director</div>
+            <p style="margin-bottom: 25px; color: #A0AEC0; font-size: 16px;">Ready to elevate your home protection profile? Let's fix up a visit layout.</p>
             
-            <!-- Click-to-Call Phone Number Link -->
-            <a href="tel:09595828657" class="contact-link">📞 +91 95958 28657</a>
+            <a href="tel:09595828657" class="contact-link phone-accent">📞 +91 95958 28657</a>
             <br>
-            <!-- Email Link -->
-            <a href="mailto:info@vaibhavienterprises14.in" class="contact-link" style="font-size: 18px; font-weight: 500;">✉️ info@vaibhavienterprises14.in</a>
+            <a href="mailto:info@vaibhavienterprises14.in" class="contact-link" style="font-size: 18px; color: #E2E8F0; opacity: 0.8;">✉️ info@vaibhavienterprises14.in</a>
         </div>
         <hr class="footer-line">
-        <p class="copyright">&copy; 2026 Vaibhavi Enterprises. Delivering structural security and aesthetic perfection. All Rights Reserved.</p>
+        <p class="copyright">&copy; 2026 Vaibhavi Enterprises. All Architectural Imagery Rights Reserved.</p>
     </footer>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "flex";
+            document.body.style.overflow = "hidden"; 
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = "auto"; 
+        }
+
+        // Close popup automatically if user clicks on the dark outer area
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+
+        // Handles user form submissions securely
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('client-name').value;
+            const phone = document.getElementById('client-phone').value;
+            const service = document.getElementById('service-type').value;
+            const pin = document.getElementById('pincode').value;
+            
+            alert(`Thank you ${name}! Your site inspection request for "${service}" in PIN code ${pin} has been submitted successfully. Vivek Nagwanse will call you back on ${phone} within 24 hours.`);
+            
+            closeModal('visit-form-modal');
+            event.target.reset();
+        }
+    </script>
 
 </body>
 </html>
